@@ -1,5 +1,4 @@
 from src import tools
-s = [random.randint(1, 100) for i in range(10)]
 def Sort(список):  
     флаг = True
     while флаг:

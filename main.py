@@ -1,4 +1,13 @@
 from src import tools
+s = [random.randint(1, 100) for i in range(10)]
+def Sort(список):  
+    флаг = True
+    while флаг:
+        флаг = False
+        for i in range(len(список) - 1):
+            if список[i] > список[i + 1]:
+                список[i], список[i + 1] = список[i + 1], список[i]
+                флаг = True
 
 while True:
     print(commands)
@@ -16,6 +25,7 @@ while True:
             main_dict = load_data('save_data.dat')
             main_dict.update({input('Введите имя: '): make_data(int(input('Введите телефон: ')), input('Введите адрес: '))})
             dump_data('save_data.dat', main_dict)
+            Sort(main_dict)
     elif command == 2:
         main_dict = load_data('save_data.dat')
         try:

@@ -1,5 +1,6 @@
 from src.tools import *
 
+
 while True:
     print(commands)
     command = int(input('Введите номер команды: '))
@@ -30,11 +31,19 @@ while True:
         for i in main_dict:
             print(f'Имя: {i} Телефон: {main_dict[i][head_dict[0]]} Адрес: {main_dict[i][head_dict[1]]}')
     elif command == 5:
+
+        main_dict = load_data('save_data.dat')
+        main_dict.clear()
+        dump_data('save_data.dat', main_dict)
+    elif command == 6:
+        main_dict = sort_for_number(main_dict)
+
        main_dict = load_data('save_data.dat')
        main_dict.clear()
        dump_data('save_data.dat', main_dict)
     elif command == 6:
         sort_number(main_dict)
+
     else:
         print('Такой команды не существует')
 print("Программа закрывается")

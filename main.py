@@ -1,4 +1,4 @@
-from src import tools
+from src.tools import *
 
 while True:
     print(commands)
@@ -33,6 +33,8 @@ while True:
        main_dict = load_data('save_data.dat')
        main_dict.clear()
        dump_data('save_data.dat', main_dict)
+    elif command == 6:
+        sort_number(main_dict)
     else:
         print('Такой команды не существует')
 print("Программа закрывается")

@@ -5,6 +5,7 @@ main_dict = {}
 commands = '1.Добавить в справочник контактов\n2.Вывести значения по конаткту\n3.Закончить работу с словарём из справочника\n4.Вывести весь словарь\n5.Очстить словарь.'
 
 
+tuple_of_numbers = (i for i in range(10))
 def make_data(telephone=None, address=None):
     temp_dict = {head_dict[0]: telephone, head_dict[1]: address}
     return temp_dict
@@ -20,3 +21,33 @@ def dump_data(name_of_file=None, data_for_dump=None):
     temp_f_s = open(name_of_file, 'wb')
     pickle.dump(data_for_dump, temp_f_s)
     temp_f_s.close()
+
+def buble_Sort(list_for_sorting=[], list_of_index=[]):
+    flag = True
+    while flag:
+        flag = False
+        for i in range(len(list_for_sorting) - 1):
+            if list_for_sorting[i] > list_for_sorting[i + 1]:
+                list_of_index[i], list_of_index[i + 1] = list_of_index[i + 1], list_of_index[i]
+                list_for_sorting[i], list_for_sorting[i + 1] = list_for_sorting[i + 1], list_for_sorting[i]
+                flag = True
+
+
+def sort_number(telephone_number = None, dict_with_data = None):
+    temp_telephones = []
+    for name in dict_with_data:
+        temp_telephones.append(dict_with_data[name][head_dict[1]])
+    index_list_of_telephone = [i for i in range(len(temp_telephones))]
+    first_letter = [str(temp_telephones[i])[0] for i in range(len(temp_telephones))]
+    buble_Sort(first_letter, index_list_of_telephone)
+    names = list(dict_with_data.keys())
+    count_ind = 0
+    temp_dict = {}
+    for name in dict_with_data:
+        temp_dict.update({names[count_ind]: make_data(dict_with_data)) dict_with_data[name][head_dict[0]]]
+        count_ind = 1
+    print(temp_dict)
+    print(index_list_of_telephone)
+    print(first_letter)
+
+
